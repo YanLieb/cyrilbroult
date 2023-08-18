@@ -606,9 +606,39 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-#site-navigation #primary-menu {
+#wpadminbar {
+	display: none;
+}
+
+#site-navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#site-navigation a {
+	text-decoration: none;
+}
+
+#site-navigation .custom-logo-link img {
+	width: 90px;
+}
+
+#site-navigation #primary-menu,
+#site-navigation #secondary-menu {
+	display: flex;
+}
+
+#site-navigation #primary-menu {
+	gap: 3em;
+}
+
+#site-navigation #primary-menu a {
+	text-transform: uppercase;
 }
 
 /* Posts and pages
