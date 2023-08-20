@@ -9,17 +9,32 @@
  */
 
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
 		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 	</header><!-- .entry-header -->
+	<?php $home_slider = get_field('slider_homepage');
+
+	?>
+	<div id="home-bg-slider" class="swiper">
+		<div class="swiper-wrapper">
+			<?php if (isset($home_slider) && !empty($home_slider)) : ?>
+				<?php foreach ($home_slider as $key => $photo) : ?>
+					<?php if (!empty($photo['sizes']['2048x2048'])) : ?>
+						<img src="<?php echo $photo['sizes']['2048x2048']; ?>" id="home_bg_<?php echo $key; ?>" class="home-bg-image swiper-slide" alt="<?php if ($photo['alt']) {
+																																							echo $photo['alt'];
+																																						} else {
+																																							echo $photo['name'];
+																																						} ?>">
+					<?php endif; ?>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</div>
+	</div>
 
 	<?php cyrilbroult_post_thumbnail(); ?>
-	<?php if (get_field('slider_homepage')) : ?>
-		<p><?php the_field('slider_homepage'); ?></p>
-	<?php endif; ?>
+
 	<div class="entry-content">
 		<?php
 		the_content();

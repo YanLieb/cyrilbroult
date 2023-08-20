@@ -21,3 +21,31 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+body.home {
+	background: #000;
+
+	#home-bg-slider-wrapper {
+	}
+
+	#home-bg-slider.swiper {
+		position: absolute;
+		top: 0;
+		filter: brightness(0.3);
+		z-index: -10;
+
+		&:not(.swiper-initialized) {
+			position: absolute;
+			top: 0;
+
+			.swiper-slide {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100vh;
+				width: 100vw;
+				z-index: -10;
+			}
+		}
+	}
+}
