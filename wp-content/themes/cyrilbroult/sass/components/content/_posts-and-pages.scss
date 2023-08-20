@@ -25,26 +25,68 @@
 body.home {
 	background: #000;
 
-	#home-bg-slider-wrapper {
+	section.wp-block-group.homeslider_foreground_content {
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		width: 80%;
+		margin: auto;
+
+		.wp-block-group__inner-container {
+			position: fixed;
+			z-index: 0;
+		}
+
+		.wp-block-site-title {
+			font-family: $font-title;
+		}
+
+		.wp-block-site-tagline {
+			font-family: $font-body;
+		}
+
+		.wp-block-button a {
+			transition: filter ease-in-out 200ms;
+
+			&:hover {
+				filter: brightness(200%);
+			}
+		}
+	}
+
+	section+section {
+		z-index: 10;
+		position: relative;
+		box-shadow: 0 0px 50px rgba(0, 0, 0, 0.9);
 	}
 
 	#home-bg-slider.swiper {
-		position: absolute;
+		position: fixed;
 		top: 0;
-		filter: brightness(0.3);
+		filter: contrast(80%) brightness(40%);
 		z-index: -10;
+		height: 100%;
+		aspect-ratio: 3/2;
+
+		@include breakpoint-down(sm) {
+			left: -50%;
+		}
+
+		&+.entry-content {
+			margin: unset;
+		}
 
 		&:not(.swiper-initialized) {
-			position: absolute;
-			top: 0;
 
 			.swiper-slide {
-				position: absolute;
+				position: fixed;
 				top: 0;
-				left: 0;
-				height: 100vh;
-				width: 100vw;
+				filter: brightness(0.3);
 				z-index: -10;
+				height: 100%;
+				aspect-ratio: 3/2;
+				left: -50%;
 			}
 		}
 	}

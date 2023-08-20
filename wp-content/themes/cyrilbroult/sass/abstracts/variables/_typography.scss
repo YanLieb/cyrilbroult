@@ -5,3 +5,34 @@ $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+
+@font-face {
+    font-family: 'Norwester';
+    src: url(fonts/norwester.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url(fonts/GlacialIndifference-Regular.otf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference Italic';
+    src: url(fonts/GlacialIndifference-Italic.otf);
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference Bold';
+    src: url(fonts/GlacialIndifference-Bold.otf);
+    font-weight: bold;
+}
+
+$font-title: 'Norwester', sans-serif;
+$font-body: 'Glacial Indifference', sans-serif;
+$font-italic: 'Glacial Indifference Italic', italic, sans-serif;
+$font-bold: 'Glacial Indifference Bold', bold, sans-serif;

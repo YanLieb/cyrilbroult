@@ -11,12 +11,13 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header">
-		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-	</header><!-- .entry-header -->
-	<?php $home_slider = get_field('slider_homepage');
+	<?php if (!is_front_page()) : ?>
+		<header class="entry-header">
+			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+		</header><!-- .entry-header -->
+	<?php endif; ?>
 
-	?>
+	<?php $home_slider = get_field('slider_homepage'); ?>
 	<div id="home-bg-slider" class="swiper">
 		<div class="swiper-wrapper">
 			<?php if (isset($home_slider) && !empty($home_slider)) : ?>
