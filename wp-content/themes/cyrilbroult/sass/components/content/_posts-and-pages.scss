@@ -50,7 +50,8 @@ body.home {
 			transition: filter ease-in-out 200ms;
 
 			&:hover {
-				filter: brightness(200%);
+				background-color: $black;
+				color: $white;
 			}
 		}
 	}
@@ -66,11 +67,14 @@ body.home {
 		top: 0;
 		filter: contrast(80%) brightness(40%);
 		z-index: -10;
-		height: 100%;
 		aspect-ratio: 3/2;
 
 		@include breakpoint-down(sm) {
 			left: -50%;
+		}
+
+		@include breakpoint-down(xl) {
+			height: 100%;
 		}
 
 		&+.entry-content {

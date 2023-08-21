@@ -30,6 +30,7 @@
 		<header id="masthead" class="site-header">
 			<nav id="site-navigation" class="main-navigation">
 				<?php the_custom_logo(); ?>
+				<div id="responsive-menu-icon"><span></span><span></span><span></span></div>
 				<?php
 				wp_nav_menu(
 					array(
