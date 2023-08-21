@@ -635,35 +635,77 @@ textarea {
 	display: none;
 }
 
-#site-navigation {
+#masthead.site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(20px);
+	height: 100vh;
+	z-index: 20;
+	overflow: hidden;
+}
+
+@media (max-width: 768px) {
+	#site-navigation {
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column;
+		gap: 5em;
+	}
+}
+
+#site-navigation #responsive-menu-icon {
+	cursor: pointer;
+	position: absolute;
+	bottom: 2em;
+	right: 2em;
+}
+
+#site-navigation #responsive-menu-icon span {
+	width: 3em;
+	height: 0.45em;
+	background-color: #fefefe;
+	display: block;
+	border-radius: 5px;
+	margin-bottom: 0.5em;
+}
+
+@media (min-width: 768px) {
+	#site-navigation #responsive-menu-icon {
+		display: none;
+	}
 }
 
 #site-navigation a {
 	text-decoration: none;
 }
 
+@media (max-width: 768px) {
+	#site-navigation .custom-logo-link {
+		display: none;
+	}
+}
+
 #site-navigation .custom-logo-link img {
 	width: 90px;
 }
 
-#site-navigation #primary-menu,
-#site-navigation #secondary-menu {
-	display: flex;
+@media (max-width: 768px) {
+	#site-navigation #primary-menu {
+		text-align: center;
+	}
 }
 
-#site-navigation #primary-menu {
-	gap: 3em;
+@media (max-width: 768px) {
+	#site-navigation #secondary-menu {
+		display: flex;
+	}
 }
 
-#site-navigation #primary-menu a {
+#site-navigation a {
 	text-transform: uppercase;
 }
 
@@ -724,7 +766,8 @@ body.home section.wp-block-group.homeslider_foreground_content .wp-block-button 
 }
 
 body.home section.wp-block-group.homeslider_foreground_content .wp-block-button a:hover {
-	filter: brightness(200%);
+	background-color: #0e0e0e;
+	color: #fefefe;
 }
 
 body.home section + section {
@@ -738,13 +781,18 @@ body.home #home-bg-slider.swiper {
 	top: 0;
 	filter: contrast(80%) brightness(40%);
 	z-index: -10;
-	height: 100%;
 	aspect-ratio: 3/2;
 }
 
 @media (max-width: 576px) {
 	body.home #home-bg-slider.swiper {
 		left: -50%;
+	}
+}
+
+@media (max-width: 1400px) {
+	body.home #home-bg-slider.swiper {
+		height: 100%;
 	}
 }
 

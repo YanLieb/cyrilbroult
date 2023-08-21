@@ -2,37 +2,74 @@
 	display: none;
 }
 
-#site-navigation {
+#masthead.site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(20px);
+	height: 100vh;
+	z-index: 20;
+	overflow: hidden;
+}
+
+#site-navigation {
+
+	@include breakpoint-down(md) {
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column;
+		gap: 5em;
+	}
+
+	#responsive-menu-icon {
+		cursor: pointer;
+		position: absolute;
+		bottom: 2em;
+		right: 2em;
+		span {
+			width: 3em;
+			height: 0.45em;
+			background-color: $white;
+			display: block;
+			border-radius: 5px;
+			margin-bottom: 0.5em;
+		}
+
+		@include breakpoint-up(md) {
+			display: none;
+		}
+	}
 
 	a {
 		text-decoration: none;
 	}
 
 	.custom-logo-link {
+		@include breakpoint-down(md) {
+			display: none;
+		}
 
 		img {
 			width: 90px;
 		}
 	}
 
-	#primary-menu,
-	#secondary-menu {
-		display: flex;
+	#primary-menu {
+		@include breakpoint-down(md) {
+			text-align: center;
+		}
 	}
 
-	#primary-menu {
-		gap: 3em;
-
-		a {
-			text-transform: uppercase;
+	#secondary-menu {
+		@include breakpoint-down(md) {
+			display: flex;
 		}
+	}
+
+	a {
+		text-transform: uppercase;
 	}
 }
