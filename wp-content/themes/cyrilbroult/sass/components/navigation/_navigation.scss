@@ -29,13 +29,26 @@
 		position: absolute;
 		bottom: 2em;
 		right: 2em;
+
 		span {
 			width: 3em;
 			height: 0.45em;
 			background-color: $white;
 			display: block;
-			border-radius: 5px;
+			border-radius: 2px;
 			margin-bottom: 0.5em;
+
+			&:first-child {
+				transform: rotate(55deg);
+				top: 16px;
+				position: relative;
+			}
+
+			&:last-child {
+				position: relative;
+				bottom: 14px;
+				transform: rotate(-55deg);
+			}
 		}
 
 		@include breakpoint-up(md) {
@@ -60,12 +73,55 @@
 	#primary-menu {
 		@include breakpoint-down(md) {
 			text-align: center;
+
+			a {
+				display: block;
+				width: 100vw;
+				margin-bottom: 0.25em;
+				color: $white;
+				font-size: $font-size-largest;
+				font-family: $font-bold;
+				transition: all ease-in-out 200ms;
+				filter: drop-shadow(2px 4px 6px $black);
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.8);
+					filter: unset;
+					box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.8);
+				}
+			}
 		}
 	}
 
 	#secondary-menu {
+		$social-networks: facebook,
+		instagram,
+		youtube,
+		linkedin;
+		$icon-size: 30px;
+
+		@each $network in $social-networks {
+			.menu-item.#{$network} {
+				visibility: hidden;
+				margin: 0;
+				padding: 0;
+				width: $icon-size;
+				height: $icon-size;
+				&::after {
+					visibility: visible;
+					content: "";
+					display: block;
+					width: $icon-size;
+					height: $icon-size;
+					background: url('./img/svg/#{$network}.svg') no-repeat center center;
+					background-size: contain;
+				}
+			}
+		}
+
 		@include breakpoint-down(md) {
 			display: flex;
+
 		}
 	}
 

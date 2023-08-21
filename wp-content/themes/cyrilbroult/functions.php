@@ -56,6 +56,20 @@ function cyrilbroult_setup()
 		)
 	);
 
+	add_filter('wp_nav_menu_objects', 'add_title_as_css_classes', 10, 2);
+
+	function add_title_as_css_classes($items, $args)
+	{
+		if ($args->menu->slug == 'reseaux-sociaux-header' || $args->menu->term_id == 3) {
+			foreach ($items as &$item) {
+				if ( $item->post_name !== "" && !in_array($item->post_name, $item->classes) )
+				array_push($item->classes, $item->post_name);
+			}
+		}
+		return $items;
+	}
+
+
 	/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.
@@ -147,7 +161,7 @@ function cyrilbroult_scripts()
 	wp_enqueue_style('cyrilbroult-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_enqueue_style('swipercss', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.css');
 	wp_style_add_data('cyrilbroult-style', 'rtl', 'replace');
-	
+
 	wp_enqueue_script('theme', get_template_directory_uri() . '/js/theme.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {

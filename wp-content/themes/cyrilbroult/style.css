@@ -669,8 +669,20 @@ textarea {
 	height: 0.45em;
 	background-color: #fefefe;
 	display: block;
-	border-radius: 5px;
+	border-radius: 2px;
 	margin-bottom: 0.5em;
+}
+
+#site-navigation #responsive-menu-icon span:first-child {
+	transform: rotate(55deg);
+	top: 16px;
+	position: relative;
+}
+
+#site-navigation #responsive-menu-icon span:last-child {
+	position: relative;
+	bottom: 14px;
+	transform: rotate(-55deg);
 }
 
 @media (min-width: 768px) {
@@ -697,6 +709,93 @@ textarea {
 	#site-navigation #primary-menu {
 		text-align: center;
 	}
+	#site-navigation #primary-menu a {
+		display: block;
+		width: 100vw;
+		margin-bottom: 0.25em;
+		color: #fefefe;
+		font-size: 2.5rem;
+		font-family: "Glacial Indifference Bold", bold, sans-serif;
+		transition: all ease-in-out 200ms;
+		filter: drop-shadow(2px 4px 6px #0e0e0e);
+	}
+	#site-navigation #primary-menu a:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+		filter: unset;
+		box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.8);
+	}
+}
+
+#site-navigation #secondary-menu .menu-item.facebook {
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+}
+
+#site-navigation #secondary-menu .menu-item.facebook::after {
+	visibility: visible;
+	content: "";
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url("./img/svg/facebook.svg") no-repeat center center;
+	background-size: contain;
+}
+
+#site-navigation #secondary-menu .menu-item.instagram {
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+}
+
+#site-navigation #secondary-menu .menu-item.instagram::after {
+	visibility: visible;
+	content: "";
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url("./img/svg/instagram.svg") no-repeat center center;
+	background-size: contain;
+}
+
+#site-navigation #secondary-menu .menu-item.youtube {
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+}
+
+#site-navigation #secondary-menu .menu-item.youtube::after {
+	visibility: visible;
+	content: "";
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url("./img/svg/youtube.svg") no-repeat center center;
+	background-size: contain;
+}
+
+#site-navigation #secondary-menu .menu-item.linkedin {
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+}
+
+#site-navigation #secondary-menu .menu-item.linkedin::after {
+	visibility: visible;
+	content: "";
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url("./img/svg/linkedin.svg") no-repeat center center;
+	background-size: contain;
 }
 
 @media (max-width: 768px) {
