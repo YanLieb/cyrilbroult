@@ -36,3 +36,18 @@ $font-title: 'Norwester', sans-serif;
 $font-body: 'Glacial Indifference', sans-serif;
 $font-italic: 'Glacial Indifference Italic', italic, sans-serif;
 $font-bold: 'Glacial Indifference Bold', bold, sans-serif;
+
+$font-size-base: 1rem;
+
+$font-size-largest: $font-size-base * 2.5;
+$font-size-larger: $font-size-base * 1.75;
+$font-size-large: $font-size-base * 1.25;
+$font-size-small: $font-size-base * 0.85;
+$font-size-smaller: $font-size-base * 0.7;
+$font-size-smallest: $font-size-base * 0.5;
+
+
+$facebook-logo: url('../images/svg/facebook.svg');
+$instagram-logo: url('../images/svg/instagram.svg');
+$youtube-logo: url('../images/svg/youtube.svg');
+$linkedin-logo: url('../images/svg/linkedin.svg');
