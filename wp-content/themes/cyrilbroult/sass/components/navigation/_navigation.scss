@@ -8,124 +8,166 @@
 	left: 0;
 	right: 0;
 	backdrop-filter: blur(20px);
-	height: 100vh;
 	z-index: 20;
-	overflow: hidden;
-}
 
-#site-navigation {
-
-	@include breakpoint-down(md) {
-		display: flex;
-		height: 100vh;
-		justify-content: center;
-		align-items: center;
-		flex-flow: column;
-		gap: 5em;
+	@include breakpoint-up(md) {
+		padding: 1em 3em;
 	}
 
-	#responsive-menu-icon {
-		cursor: pointer;
-		position: absolute;
-		bottom: 2em;
-		right: 2em;
 
-		span {
-			width: 3em;
-			height: 0.45em;
-			background-color: $white;
-			display: block;
-			border-radius: 2px;
-			margin-bottom: 0.5em;
-
-			&:first-child {
-				transform: rotate(55deg);
-				top: 16px;
-				position: relative;
-			}
-
-			&:last-child {
-				position: relative;
-				bottom: 14px;
-				transform: rotate(-55deg);
-			}
-		}
-
-		@include breakpoint-up(md) {
-			display: none;
-		}
+	@include breakpoint-down(md) {
+		height: 100vh;
+		overflow: hidden;
 	}
 
 	a {
 		text-decoration: none;
+		text-transform: uppercase;
 	}
 
 	.custom-logo-link {
-		@include breakpoint-down(md) {
-			display: none;
-		}
-
 		img {
 			width: 90px;
-		}
-	}
 
-	#primary-menu {
-		@include breakpoint-down(md) {
-			text-align: center;
-
-			a {
-				display: block;
-				width: 100vw;
-				margin-bottom: 0.25em;
-				color: $white;
-				font-size: $font-size-largest;
-				font-family: $font-bold;
-				transition: all ease-in-out 200ms;
-				filter: drop-shadow(2px 4px 6px $black);
-
-				&:hover {
-					background-color: rgba(0, 0, 0, 0.8);
-					filter: unset;
-					box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.8);
-				}
+			@include breakpoint-up(md) {
+				width: 50px;
 			}
 		}
 	}
+}
 
-	#secondary-menu {
-		$social-networks: facebook,
-		instagram,
-		youtube,
-		linkedin;
-		$icon-size: 30px;
+#responsive-menu-icon {
+	cursor: pointer;
+	position: absolute;
+	bottom: 2em;
+	right: 2em;
 
-		@each $network in $social-networks {
-			.menu-item.#{$network} {
-				visibility: hidden;
-				margin: 0;
-				padding: 0;
-				width: $icon-size;
-				height: $icon-size;
-				&::after {
-					visibility: visible;
-					content: "";
-					display: block;
-					width: $icon-size;
-					height: $icon-size;
-					background: url('./img/svg/#{$network}.svg') no-repeat center center;
-					background-size: contain;
-				}
-			}
+	span {
+		width: 3em;
+		height: 0.45em;
+		background-color: $white;
+		display: block;
+		border-radius: 2px;
+		margin-bottom: 0.5em;
+
+		&:first-child {
+			transform: rotate(55deg);
+			top: 16px;
+			position: relative;
 		}
 
-		@include breakpoint-down(md) {
-			display: flex;
-
+		&:last-child {
+			position: relative;
+			bottom: 14px;
+			transform: rotate(-55deg);
 		}
 	}
+
+	@include breakpoint-up(md) {
+		display: none;
+	}
+}
+
+#site-navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@include breakpoint-down(md) {
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column;
+		gap: 3em;
+	}
+}
+
+#primary-menu {
+	display: flex;
+	gap: 2em;
 
 	a {
-		text-transform: uppercase;
+		display: block;
+		color: $white;
+		font-family: $font-bold;
+		transition: all ease-in-out 200ms;
+		filter: drop-shadow(2px 4px 6px $black);
+
+		&::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 2px;
+			background: $white;
+			transform: scale(0);
+			transition: transform ease-in-out 250ms;
+		}
+
+		&:hover {
+			&::after {
+				transform: scale(1);
+			}
+		}
+
+	}
+
+	@include breakpoint-down(md) {
+		flex-flow: column;
+		gap: unset;
+		text-align: center;
+
+		a {
+			width: 100vw;
+			font-size: $font-size-largest;
+
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.8);
+				filter: unset;
+				box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.8);
+			}
+
+		}
+	}
+}
+
+#secondary-menu {
+	display: flex;
+	gap: 1em;
+
+	$social-networks: facebook,
+	instagram,
+	youtube,
+	linkedin;
+
+	--icon-size: 40px;
+
+	@include breakpoint-up(md) {
+		gap: 1em;
+		--icon-size: 20px;
+	}
+
+	@each $network in $social-networks {
+		.menu-item.#{$network} {
+			position: relative;
+			visibility: hidden;
+			margin: 0;
+			padding: 0;
+			width: var(--icon-size);
+			height: var(--icon-size);
+
+			&::after {
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				visibility: visible;
+				content: "";
+				display: block;
+				width: var(--icon-size);
+				height: var(--icon-size);
+				background: url('./img/svg/#{$network}-white.svg') no-repeat center center;
+				background-size: contain;
+				filter: drop-shadow(2px 4px 6px $black);
+			}
+		}
 	}
 }
