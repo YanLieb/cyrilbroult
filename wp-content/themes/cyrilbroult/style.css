@@ -732,7 +732,7 @@ textarea {
 	color: #fefefe;
 	font-family: "Glacial Indifference Bold", bold, sans-serif;
 	transition: all ease-in-out 200ms;
-	filter: drop-shadow(2px 4px 6px #0e0e0e);
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 #primary-menu a::after {
@@ -743,6 +743,7 @@ textarea {
 	background: #fefefe;
 	transform: scale(0);
 	transition: transform ease-in-out 250ms;
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 #primary-menu a:hover::after {
@@ -762,7 +763,10 @@ textarea {
 	#primary-menu a:hover {
 		background-color: rgba(0, 0, 0, 0.8);
 		filter: unset;
-		box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.8);
+		box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
+	}
+	#primary-menu a:hover::after {
+		display: none;
 	}
 }
 
@@ -779,7 +783,8 @@ textarea {
 	}
 }
 
-#secondary-menu .menu-item.facebook {
+#secondary-menu .menu-item.facebook a {
+	display: block;
 	position: relative;
 	visibility: hidden;
 	margin: 0;
@@ -788,7 +793,7 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.facebook::after {
+#secondary-menu .menu-item.facebook a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -799,10 +804,17 @@ textarea {
 	height: var(--icon-size);
 	background: url("./img/svg/facebook-white.svg") no-repeat center center;
 	background-size: contain;
-	filter: drop-shadow(2px 4px 6px #0e0e0e);
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+	transform: scale(1);
+	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.instagram {
+#secondary-menu .menu-item.facebook a:hover::after {
+	transform: scale(0.9);
+}
+
+#secondary-menu .menu-item.instagram a {
+	display: block;
 	position: relative;
 	visibility: hidden;
 	margin: 0;
@@ -811,7 +823,7 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.instagram::after {
+#secondary-menu .menu-item.instagram a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -822,10 +834,17 @@ textarea {
 	height: var(--icon-size);
 	background: url("./img/svg/instagram-white.svg") no-repeat center center;
 	background-size: contain;
-	filter: drop-shadow(2px 4px 6px #0e0e0e);
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+	transform: scale(1);
+	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.youtube {
+#secondary-menu .menu-item.instagram a:hover::after {
+	transform: scale(0.9);
+}
+
+#secondary-menu .menu-item.youtube a {
+	display: block;
 	position: relative;
 	visibility: hidden;
 	margin: 0;
@@ -834,7 +853,7 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.youtube::after {
+#secondary-menu .menu-item.youtube a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -845,10 +864,17 @@ textarea {
 	height: var(--icon-size);
 	background: url("./img/svg/youtube-white.svg") no-repeat center center;
 	background-size: contain;
-	filter: drop-shadow(2px 4px 6px #0e0e0e);
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+	transform: scale(1);
+	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.linkedin {
+#secondary-menu .menu-item.youtube a:hover::after {
+	transform: scale(0.9);
+}
+
+#secondary-menu .menu-item.linkedin a {
+	display: block;
 	position: relative;
 	visibility: hidden;
 	margin: 0;
@@ -857,7 +883,7 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.linkedin::after {
+#secondary-menu .menu-item.linkedin a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -868,7 +894,13 @@ textarea {
 	height: var(--icon-size);
 	background: url("./img/svg/linkedin-white.svg") no-repeat center center;
 	background-size: contain;
-	filter: drop-shadow(2px 4px 6px #0e0e0e);
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+	transform: scale(1);
+	transition: transform ease-in-out 250ms;
+}
+
+#secondary-menu .menu-item.linkedin a:hover::after {
+	transform: scale(0.9);
 }
 
 /* Posts and pages
