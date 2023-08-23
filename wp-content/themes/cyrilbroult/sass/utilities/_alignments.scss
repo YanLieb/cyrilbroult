@@ -29,4 +29,8 @@
 .container {
 	width: 80%;
 	margin: auto;
+
+	@include breakpoint-down(md) {
+		width: 90%;
+	}
 }
