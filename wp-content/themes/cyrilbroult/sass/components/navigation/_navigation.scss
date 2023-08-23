@@ -2,22 +2,29 @@
 	display: none;
 }
 
+$menu-toggle-transition: all ease-in-out 300ms;
+$menu-toggle-transition-delay: 250ms;
+
 #masthead.site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(10px);
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 	z-index: 20;
+	transition: $menu-toggle-transition;
+	transition-delay: 100ms;
 
 	@include breakpoint-up(md) {
-		padding: 1em 3em;
+		padding: 1em 0;
 	}
-
 
 	@include breakpoint-down(md) {
 		height: 100vh;
 		overflow: hidden;
+		left: 100vw;
+		right: unset;
 	}
 
 	a {
@@ -28,43 +35,9 @@
 	.custom-logo-link {
 		img {
 			width: 90px;
-
-			@include breakpoint-up(md) {
-				width: 50px;
-			}
+			transition: $menu-toggle-transition;
+			transition-delay: 50ms;
 		}
-	}
-}
-
-#responsive-menu-icon {
-	cursor: pointer;
-	position: absolute;
-	bottom: 2em;
-	right: 2em;
-
-	span {
-		width: 3em;
-		height: 0.45em;
-		background-color: $white;
-		display: block;
-		border-radius: 2px;
-		margin-bottom: 0.5em;
-
-		&:first-child {
-			transform: rotate(55deg);
-			top: 16px;
-			position: relative;
-		}
-
-		&:last-child {
-			position: relative;
-			bottom: 14px;
-			transform: rotate(-55deg);
-		}
-	}
-
-	@include breakpoint-up(md) {
-		display: none;
 	}
 }
 
@@ -95,15 +68,17 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 		transition: all ease-in-out 200ms;
 		filter: $filter-drop-shadow;
 
-		&::after {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 2px;
-			background: $white;
-			transform: scale(0);
-			transition: transform ease-in-out 250ms;
-			filter: $filter-drop-shadow;
+		@include breakpoint-up(md) {
+			&::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: $white;
+				transform: scale(0);
+				transition: transform ease-in-out 250ms;
+				filter: $filter-drop-shadow;
+			}
 		}
 
 		&:hover {
@@ -118,6 +93,9 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 		flex-flow: column;
 		gap: unset;
 		text-align: center;
+		opacity: 0;
+		transition: $menu-toggle-transition;
+		transition-delay: $menu-toggle-transition-delay;
 
 		a {
 			width: 100vw;
@@ -127,10 +105,6 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 				background-color: rgba(0, 0, 0, 0.8);
 				filter: unset;
 				box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
-
-				&::after {
-					display: none;
-				}
 			}
 
 		}
@@ -141,10 +115,16 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 	display: flex;
 	gap: 1em;
 
+	@include breakpoint-down(md) {
+		opacity: 0;
+		transition: $menu-toggle-transition;
+		transition-delay: $menu-toggle-transition-delay;
+	}
+
 	$social-networks: facebook,
-	instagram,
-	youtube,
-	linkedin;
+		instagram,
+		youtube,
+		linkedin;
 
 	--icon-size: 40px;
 
@@ -185,5 +165,78 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 				}
 			}
 		}
+	}
+}
+
+#responsive-menu-icon {
+	cursor: pointer;
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	z-index: 20;
+	mix-blend-mode: exclusion;
+
+	span {
+		width: 3em;
+		height: 0.45em;
+		background-color: $white;
+		display: block;
+		border-radius: 2px;
+		margin-bottom: 0.5em;
+		transition: $menu-toggle-transition;
+		transition-delay: $menu-toggle-transition-delay;
+
+		&:nth-child(2) {
+			position: relative;
+
+			&::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 0.45em;
+				background: $white;
+				border-radius: 2px;
+				position: absolute;
+				transition: $menu-toggle-transition;
+				transition-delay: $menu-toggle-transition-delay;
+			}
+		}
+	}
+
+	@include breakpoint-up(md) {
+		display: none;
+	}
+}
+
+body.is-menu-mobile-visible {
+	#masthead.site-header {
+		left: 0;
+		opacity: 1;
+	}
+
+	#responsive-menu-icon span {
+		&:first-child {
+			transform: translateY(1em);
+			opacity: 0;
+		}
+
+		&:last-child {
+			transform: translateY(-1em);
+			opacity: 0;
+		}
+
+		&:nth-child(2) {
+			transform: rotate(45deg);
+			isolation: isolate;
+
+			&::after {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	#primary-menu,
+	#secondary-menu {
+		opacity: 1;
 	}
 }

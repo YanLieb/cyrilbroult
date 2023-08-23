@@ -65,8 +65,8 @@
 					),
 					wp_kses_post(get_the_title())
 				),
-				'<span class="edit-link">',
-				'</span>'
+				'<div class="edit-link container">',
+				'</div>'
 			);
 			?>
 		</footer><!-- .entry-footer -->

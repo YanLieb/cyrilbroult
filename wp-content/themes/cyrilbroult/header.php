@@ -28,7 +28,7 @@
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'cyrilbroult'); ?></a>
 
 		<header id="masthead" class="site-header">
-			<nav id="site-navigation" class="main-navigation">
+			<nav id="site-navigation" class="main-navigation container">
 				<?php the_custom_logo(); ?>
 
 				<?php
@@ -46,5 +46,7 @@
 				);
 				?>
 			</nav><!-- #site-navigation -->
-			<div id="responsive-menu-icon"><span></span><span></span><span></span></div>
+			
 		</header><!-- #masthead -->
+
+		<div id="responsive-menu-icon"><span></span><span></span><span></span></div>
