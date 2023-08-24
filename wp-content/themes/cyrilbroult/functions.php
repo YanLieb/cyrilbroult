@@ -62,8 +62,8 @@ function cyrilbroult_setup()
 	{
 		if ($args->menu->slug == 'reseaux-sociaux-header' || $args->menu->term_id == 3) {
 			foreach ($items as &$item) {
-				if ( $item->post_name !== "" && !in_array($item->post_name, $item->classes) )
-				array_push($item->classes, $item->post_name);
+				if ($item->post_name !== "" && !in_array($item->post_name, $item->classes))
+					array_push($item->classes, $item->post_name);
 			}
 		}
 		return $items;
@@ -146,8 +146,20 @@ function cyrilbroult_widgets_init()
 			'description'   => esc_html__('Add widgets here.', 'cyrilbroult'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<p class="widget-title">',
+			'after_title'   => '</p>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Footer', 'cyrilbroult'),
+			'id'            => 'footer-widget-area',
+			'description'   => esc_html__('Widgets added here will appear in the footer', 'cyrilbroult'),
+			'before_widget' => '<div id="%1$s" class="widget %2$s container">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<p class="widget-title">',
+			'after_title'   => '</p>',
 		)
 	);
 }

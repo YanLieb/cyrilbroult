@@ -696,7 +696,7 @@ textarea {
 
 #primary-menu a {
 	display: block;
-	color: #fefefe;
+	color: #fffefe;
 	font-family: "Glacial Indifference Bold", bold, sans-serif;
 	transition: all ease-in-out 200ms;
 	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
@@ -708,7 +708,7 @@ textarea {
 		display: block;
 		width: 100%;
 		height: 2px;
-		background: #fefefe;
+		background: #fffefe;
 		transform: scale(0);
 		transition: transform ease-in-out 250ms;
 		filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
@@ -739,14 +739,16 @@ textarea {
 	}
 }
 
-#secondary-menu {
+#secondary-menu,
+#menu-reseaux-sociaux-header {
 	display: flex;
 	gap: 1em;
 	--icon-size: 40px;
 }
 
 @media (max-width: 768px) {
-	#secondary-menu {
+	#secondary-menu,
+	#menu-reseaux-sociaux-header {
 		opacity: 0;
 		transition: all ease-in-out 300ms;
 		transition-delay: 250ms;
@@ -754,13 +756,15 @@ textarea {
 }
 
 @media (min-width: 768px) {
-	#secondary-menu {
+	#secondary-menu,
+	#menu-reseaux-sociaux-header {
 		gap: 1em;
 		--icon-size: 20px;
 	}
 }
 
-#secondary-menu .menu-item.facebook a {
+#secondary-menu .menu-item.facebook a,
+#menu-reseaux-sociaux-header .menu-item.facebook a {
 	display: block;
 	position: relative;
 	visibility: hidden;
@@ -770,7 +774,8 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.facebook a::after {
+#secondary-menu .menu-item.facebook a::after,
+#menu-reseaux-sociaux-header .menu-item.facebook a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -786,11 +791,13 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.facebook a:hover::after {
+#secondary-menu .menu-item.facebook a:hover::after,
+#menu-reseaux-sociaux-header .menu-item.facebook a:hover::after {
 	transform: scale(0.9);
 }
 
-#secondary-menu .menu-item.instagram a {
+#secondary-menu .menu-item.instagram a,
+#menu-reseaux-sociaux-header .menu-item.instagram a {
 	display: block;
 	position: relative;
 	visibility: hidden;
@@ -800,7 +807,8 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.instagram a::after {
+#secondary-menu .menu-item.instagram a::after,
+#menu-reseaux-sociaux-header .menu-item.instagram a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -816,11 +824,13 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.instagram a:hover::after {
+#secondary-menu .menu-item.instagram a:hover::after,
+#menu-reseaux-sociaux-header .menu-item.instagram a:hover::after {
 	transform: scale(0.9);
 }
 
-#secondary-menu .menu-item.youtube a {
+#secondary-menu .menu-item.youtube a,
+#menu-reseaux-sociaux-header .menu-item.youtube a {
 	display: block;
 	position: relative;
 	visibility: hidden;
@@ -830,7 +840,8 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.youtube a::after {
+#secondary-menu .menu-item.youtube a::after,
+#menu-reseaux-sociaux-header .menu-item.youtube a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -846,11 +857,13 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.youtube a:hover::after {
+#secondary-menu .menu-item.youtube a:hover::after,
+#menu-reseaux-sociaux-header .menu-item.youtube a:hover::after {
 	transform: scale(0.9);
 }
 
-#secondary-menu .menu-item.linkedin a {
+#secondary-menu .menu-item.linkedin a,
+#menu-reseaux-sociaux-header .menu-item.linkedin a {
 	display: block;
 	position: relative;
 	visibility: hidden;
@@ -860,7 +873,8 @@ textarea {
 	height: var(--icon-size);
 }
 
-#secondary-menu .menu-item.linkedin a::after {
+#secondary-menu .menu-item.linkedin a::after,
+#menu-reseaux-sociaux-header .menu-item.linkedin a::after {
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -876,7 +890,8 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.linkedin a:hover::after {
+#secondary-menu .menu-item.linkedin a:hover::after,
+#menu-reseaux-sociaux-header .menu-item.linkedin a:hover::after {
 	transform: scale(0.9);
 }
 
@@ -892,7 +907,7 @@ textarea {
 #responsive-menu-icon span {
 	width: 3em;
 	height: 0.45em;
-	background-color: #fefefe;
+	background-color: #fffefe;
 	display: block;
 	border-radius: 2px;
 	margin-bottom: 0.5em;
@@ -909,7 +924,7 @@ textarea {
 	display: block;
 	width: 100%;
 	height: 0.45em;
-	background: #fefefe;
+	background: #fffefe;
 	border-radius: 2px;
 	position: absolute;
 	transition: all ease-in-out 300ms;
@@ -1048,8 +1063,8 @@ section.wp-block-group.homeslider_foreground_content .wp-block-button a {
 
 section.wp-block-group.homeslider_foreground_content .wp-block-button a:hover {
 	background-color: transparent !important;
-	color: #fefefe !important;
-	outline: 2px solid #fefefe;
+	color: #fffefe !important;
+	outline: 2px solid #fffefe;
 }
 
 section.home-presentation {
@@ -1107,14 +1122,14 @@ section.home-presentation {
 }
 
 footer.entry-footer {
-	background: #0e0e0e;
+	background: #212122;
 	padding: 1em 0;
 	text-align: right;
 	font-family: "Glacial Indifference Bold", bold, sans-serif;
 }
 
 footer.entry-footer .post-edit-link {
-	color: #fefefe;
+	color: #fffefe;
 	font-size: 1.25rem;
 	text-decoration: none;
 }
@@ -1124,8 +1139,19 @@ footer.entry-footer .post-edit-link:hover {
 }
 
 #colophon.site-footer {
-	background: #0e0e0e;
-	padding: 3em 0;
+	background: #212122;
+	padding: 2em 0;
+}
+
+#colophon.site-footer #menu-reseaux-sociaux-header {
+	opacity: 1;
+	justify-content: center;
+	gap: 2em;
+	--icon-size: 40px;
+}
+
+#colophon.site-footer .widget_block p {
+	margin: 0;
 }
 
 /* Comments
