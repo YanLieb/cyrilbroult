@@ -101,8 +101,9 @@ section.home-presentation {
 			.wp-block-group {
 				width: 50%;
 			}
+
 			&+.wp-block-group.is-layout-flex {
-				flex-direction:row-reverse;
+				flex-direction: row-reverse;
 			}
 		}
 	}
@@ -142,15 +143,20 @@ section.home-presentation {
 	}
 }
 
+#primary.site-main {
+}
+
 footer.entry-footer {
 	background: $black;
 	padding: 1em 0;
 	text-align: right;
 	font-family: $font-bold;
+
 	.post-edit-link {
 		color: $white;
 		font-size: $font-size-large;
 		text-decoration: none;
+
 		&:hover {
 			text-decoration: underline;
 		}
@@ -159,5 +165,16 @@ footer.entry-footer {
 
 #colophon.site-footer {
 	background: $black;
-	padding: 3em 0;
+	padding: 2em 0;
+
+	#menu-reseaux-sociaux-header {
+		opacity: 1;
+		justify-content: center;
+		gap: 2em;
+		--icon-size: 40px;
+	}
+
+	.widget_block p {
+		margin: 0;
+	}
 }
