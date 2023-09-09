@@ -1,20 +1,14 @@
-#wpadminbar {
-	display: none;
-}
-
 $menu-toggle-transition: all ease-in-out 300ms;
-$menu-toggle-transition-delay: 250ms;
+$menu-toggle-transition-delay: 150ms;
 
 #masthead.site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	backdrop-filter: blur(10px);
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 	z-index: 20;
 	transition: $menu-toggle-transition;
-	transition-delay: 100ms;
+	transition-delay: $menu-toggle-transition-delay;
 
 	@include breakpoint-up(md) {
 		padding: 1em 0;
@@ -100,11 +94,11 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 		a {
 			width: 100vw;
 			font-size: $font-size-largest;
+			filter: brightness(1);
+			transition: filter ease-in-out 250ms;
 
 			&:hover {
-				background-color: rgba(0, 0, 0, 0.8);
-				filter: unset;
-				box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
+				filter: brightness(0.5);
 			}
 
 		}
@@ -143,6 +137,7 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 			padding: 0;
 			width: var(--icon-size);
 			height: var(--icon-size);
+			transition: filter ease-in-out 250ms;
 
 			&::after {
 				cursor: pointer;
@@ -161,9 +156,7 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 			}
 
 			&:hover {
-				&::after {
-					transform: scale(0.9);
-				}
+				filter: brightness(0.5);
 			}
 		}
 	}
@@ -210,9 +203,12 @@ $filter-drop-shadow: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 body.is-menu-mobile-visible {
+	overflow: hidden;
+
 	#masthead.site-header {
 		left: 0;
 		opacity: 1;
+		backdrop-filter: blur(10px) brightness(0.5);
 	}
 
 	#responsive-menu-icon span {
@@ -240,4 +236,23 @@ body.is-menu-mobile-visible {
 	#secondary-menu {
 		opacity: 1;
 	}
+}
+
+body.is-desktop-menu-scrolled {
+	#masthead.site-header {
+		padding: 0.25em 0;
+		backdrop-filter: blur(10px) brightness(0.5);
+
+		@include breakpoint-up(md) {
+			background: $black;
+
+			.custom-logo-link img {
+				width: 40px;
+			}
+		}
+	}
+}
+
+body:not(.home) #masthead.site-header {
+	backdrop-filter: blur(10px) brightness(0.2);
 }
