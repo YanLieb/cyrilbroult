@@ -19,3 +19,18 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+input.wpcf7-submit {
+	outline: 2px solid $black;
+	border: unset;
+	background-color: $black;
+	color: $white;
+	font-family: $font-body;
+	letter-spacing: 1px;
+	transition: all ease-in-out 250ms;
+
+	&:hover {
+		background-color: transparent;
+		color: $black;
+	}
+}

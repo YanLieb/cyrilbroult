@@ -35,7 +35,6 @@ section.wp-block-group.homeslider_foreground_content {
 
 	.wp-block-group__inner-container {
 		position: fixed;
-		z-index: -10;
 
 		@include breakpoint-down(md) {
 			text-align: center;
@@ -108,6 +107,10 @@ section.home-presentation {
 		}
 	}
 
+	.wp-block-image {
+		box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	}
+
 }
 
 #home-bg-slider.swiper {
@@ -121,7 +124,7 @@ section.home-presentation {
 		left: -50%;
 	}
 
-	@include breakpoint-down(xl) {
+	@include breakpoint-down(lg) {
 		height: 100%;
 	}
 
@@ -143,7 +146,8 @@ section.home-presentation {
 	}
 }
 
-#primary.site-main {
+body:not(.home) #primary.site-main {
+	padding-top: 150px;
 }
 
 footer.entry-footer {
@@ -151,6 +155,8 @@ footer.entry-footer {
 	padding: 1em 0;
 	text-align: right;
 	font-family: $font-bold;
+	z-index: 10;
+	position: relative;
 
 	.post-edit-link {
 		color: $white;
@@ -166,6 +172,8 @@ footer.entry-footer {
 #colophon.site-footer {
 	background: $black;
 	padding: 2em 0;
+	position: relative;
+	z-index: 10;
 
 	#menu-reseaux-sociaux-header {
 		opacity: 1;

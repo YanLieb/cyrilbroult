@@ -33,34 +33,32 @@ const mobileMenu = () => {
 	}
 };
 
-const changeMenuHeight = () => {
-	const menu = document.querySelector( '#masthead.site-header' );
-	const siteLogo = document.querySelector( '.custom-logo-link img' );
+// const menuObserver = new IntersectionObserver( ( entries ) => {
+// 	entries.forEach( ( entry ) => {
+// 		if ( ( Boolean( document.querySelector( 'body' ) ) ) && entry.isIntersecting ) {
+// 			document.querySelector( 'body' ).classList.add( 'is-desktop-menu-scrolled' );
+// 		} else {
+// 			document.querySelector( 'body' ).classList.remove( 'is-desktop-menu-scrolled' );
+// 		}
+// 	} );
+// }, {
+// 	threshold: 0.5,
+// } );
 
-	if ( Boolean( menu ) && Boolean( siteLogo ) ) {
-		menu.style.height = '0px';
-		siteLogo.style.width = '40px';
+// document.addEventListener( 'DOMContentLoaded', () => {
+// 	mobileMenu();
+// 	menuObserver.observe( document.querySelector( '.entry-content>section+section' ) );
+// 	homeSlider.init();
+// } );
+
+// Menu Reduction on scroll
+window.addEventListener( 'scroll', () => {
+	let scrollLimit;
+	// eslint-disable-next-line no-unused-expressions
+	document.querySelector( 'body' ).classList.contains( 'home' ) ? scrollLimit = 500 : scrollLimit = 100;
+	if ( window.scrollY > scrollLimit ) {
+		document.querySelector( 'body' ).classList.add( 'is-desktop-menu-scrolled' );
+	} else {
+		document.querySelector( 'body' ).classList.remove( 'is-desktop-menu-scrolled' );
 	}
-};
-
-const menuObserver = new IntersectionObserver( ( entries ) => {
-	entries.forEach( ( entry ) => {
-		const menu = document.querySelector( '#masthead.site-header' );
-		const siteLogo = document.querySelector( '.custom-logo-link img' );
-		if ( ( Boolean( menu ) && Boolean( siteLogo ) ) && entry.isIntersecting ) {
-			menu.style.padding = '0.25em 0';
-			siteLogo.style.width = '40px';
-		} else {
-			menu.style.padding = '1em 0';
-			siteLogo.style.width = '90px';
-		}
-	} );
-}, {
-	threshold: 0.5,
-} );
-
-document.addEventListener( 'DOMContentLoaded', () => {
-	mobileMenu();
-	menuObserver.observe( document.querySelector( '.entry-content>section+section' ) );
-	homeSlider.init();
 } );

@@ -425,6 +425,7 @@ h4,
 h5,
 h6 {
 	clear: both;
+	font-family: "Glacial Indifference Bold", bold, sans-serif;
 }
 
 p {
@@ -483,6 +484,10 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
+}
+
+p {
+	font-family: "Glacial Indifference", sans-serif;
 }
 
 hr {
@@ -574,6 +579,21 @@ input[type="submit"]:focus {
 	border-color: #aaa #bbb #bbb;
 }
 
+input.wpcf7-submit {
+	outline: 2px solid #212122;
+	border: unset;
+	background-color: #212122;
+	color: #fffffe;
+	font-family: "Glacial Indifference", sans-serif;
+	letter-spacing: 1px;
+	transition: all ease-in-out 250ms;
+}
+
+input.wpcf7-submit:hover {
+	background-color: transparent;
+	color: #212122;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -631,20 +651,14 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-#wpadminbar {
-	display: none;
-}
-
 #masthead.site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	backdrop-filter: blur(10px);
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 	z-index: 20;
 	transition: all ease-in-out 300ms;
-	transition-delay: 100ms;
+	transition-delay: 150ms;
 }
 
 @media (min-width: 768px) {
@@ -696,7 +710,7 @@ textarea {
 
 #primary-menu a {
 	display: block;
-	color: #fffefe;
+	color: #fffffe;
 	font-family: "Glacial Indifference Bold", bold, sans-serif;
 	transition: all ease-in-out 200ms;
 	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
@@ -708,7 +722,7 @@ textarea {
 		display: block;
 		width: 100%;
 		height: 2px;
-		background: #fffefe;
+		background: #fffffe;
 		transform: scale(0);
 		transition: transform ease-in-out 250ms;
 		filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
@@ -726,16 +740,16 @@ textarea {
 		text-align: center;
 		opacity: 0;
 		transition: all ease-in-out 300ms;
-		transition-delay: 250ms;
+		transition-delay: 150ms;
 	}
 	#primary-menu a {
 		width: 100vw;
 		font-size: 2.5rem;
+		filter: brightness(1);
+		transition: filter ease-in-out 250ms;
 	}
 	#primary-menu a:hover {
-		background-color: rgba(0, 0, 0, 0.8);
-		filter: unset;
-		box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.8);
+		filter: brightness(0.5);
 	}
 }
 
@@ -751,7 +765,7 @@ textarea {
 	#menu-reseaux-sociaux-header {
 		opacity: 0;
 		transition: all ease-in-out 300ms;
-		transition-delay: 250ms;
+		transition-delay: 150ms;
 	}
 }
 
@@ -772,6 +786,7 @@ textarea {
 	padding: 0;
 	width: var(--icon-size);
 	height: var(--icon-size);
+	transition: filter ease-in-out 250ms;
 }
 
 #secondary-menu .menu-item.facebook a::after,
@@ -791,9 +806,9 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.facebook a:hover::after,
-#menu-reseaux-sociaux-header .menu-item.facebook a:hover::after {
-	transform: scale(0.9);
+#secondary-menu .menu-item.facebook a:hover,
+#menu-reseaux-sociaux-header .menu-item.facebook a:hover {
+	filter: brightness(0.5);
 }
 
 #secondary-menu .menu-item.instagram a,
@@ -805,6 +820,7 @@ textarea {
 	padding: 0;
 	width: var(--icon-size);
 	height: var(--icon-size);
+	transition: filter ease-in-out 250ms;
 }
 
 #secondary-menu .menu-item.instagram a::after,
@@ -824,9 +840,9 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.instagram a:hover::after,
-#menu-reseaux-sociaux-header .menu-item.instagram a:hover::after {
-	transform: scale(0.9);
+#secondary-menu .menu-item.instagram a:hover,
+#menu-reseaux-sociaux-header .menu-item.instagram a:hover {
+	filter: brightness(0.5);
 }
 
 #secondary-menu .menu-item.youtube a,
@@ -838,6 +854,7 @@ textarea {
 	padding: 0;
 	width: var(--icon-size);
 	height: var(--icon-size);
+	transition: filter ease-in-out 250ms;
 }
 
 #secondary-menu .menu-item.youtube a::after,
@@ -857,9 +874,9 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.youtube a:hover::after,
-#menu-reseaux-sociaux-header .menu-item.youtube a:hover::after {
-	transform: scale(0.9);
+#secondary-menu .menu-item.youtube a:hover,
+#menu-reseaux-sociaux-header .menu-item.youtube a:hover {
+	filter: brightness(0.5);
 }
 
 #secondary-menu .menu-item.linkedin a,
@@ -871,6 +888,7 @@ textarea {
 	padding: 0;
 	width: var(--icon-size);
 	height: var(--icon-size);
+	transition: filter ease-in-out 250ms;
 }
 
 #secondary-menu .menu-item.linkedin a::after,
@@ -890,9 +908,9 @@ textarea {
 	transition: transform ease-in-out 250ms;
 }
 
-#secondary-menu .menu-item.linkedin a:hover::after,
-#menu-reseaux-sociaux-header .menu-item.linkedin a:hover::after {
-	transform: scale(0.9);
+#secondary-menu .menu-item.linkedin a:hover,
+#menu-reseaux-sociaux-header .menu-item.linkedin a:hover {
+	filter: brightness(0.5);
 }
 
 #responsive-menu-icon {
@@ -907,12 +925,12 @@ textarea {
 #responsive-menu-icon span {
 	width: 3em;
 	height: 0.45em;
-	background-color: #fffefe;
+	background-color: #fffffe;
 	display: block;
 	border-radius: 2px;
 	margin-bottom: 0.5em;
 	transition: all ease-in-out 300ms;
-	transition-delay: 250ms;
+	transition-delay: 150ms;
 }
 
 #responsive-menu-icon span:nth-child(2) {
@@ -924,11 +942,11 @@ textarea {
 	display: block;
 	width: 100%;
 	height: 0.45em;
-	background: #fffefe;
+	background: #fffffe;
 	border-radius: 2px;
 	position: absolute;
 	transition: all ease-in-out 300ms;
-	transition-delay: 250ms;
+	transition-delay: 150ms;
 }
 
 @media (min-width: 768px) {
@@ -937,9 +955,14 @@ textarea {
 	}
 }
 
+body.is-menu-mobile-visible {
+	overflow: hidden;
+}
+
 body.is-menu-mobile-visible #masthead.site-header {
 	left: 0;
 	opacity: 1;
+	backdrop-filter: blur(10px) brightness(0.5);
 }
 
 body.is-menu-mobile-visible #responsive-menu-icon span:first-child {
@@ -964,6 +987,24 @@ body.is-menu-mobile-visible #responsive-menu-icon span:nth-child(2)::after {
 body.is-menu-mobile-visible #primary-menu,
 body.is-menu-mobile-visible #secondary-menu {
 	opacity: 1;
+}
+
+body.is-desktop-menu-scrolled #masthead.site-header {
+	padding: 0.25em 0;
+	backdrop-filter: blur(10px) brightness(0.5);
+}
+
+@media (min-width: 768px) {
+	body.is-desktop-menu-scrolled #masthead.site-header {
+		background: #212122;
+	}
+	body.is-desktop-menu-scrolled #masthead.site-header .custom-logo-link img {
+		width: 40px;
+	}
+}
+
+body:not(.home) #masthead.site-header {
+	backdrop-filter: blur(10px) brightness(0.2);
 }
 
 /* Posts and pages
@@ -1008,7 +1049,6 @@ section.wp-block-group.homeslider_foreground_content {
 
 section.wp-block-group.homeslider_foreground_content .wp-block-group__inner-container {
 	position: fixed;
-	z-index: -10;
 }
 
 @media (max-width: 768px) {
@@ -1063,8 +1103,8 @@ section.wp-block-group.homeslider_foreground_content .wp-block-button a {
 
 section.wp-block-group.homeslider_foreground_content .wp-block-button a:hover {
 	background-color: transparent !important;
-	color: #fffefe !important;
-	outline: 2px solid #fffefe;
+	color: #fffffe !important;
+	outline: 2px solid #fffffe;
 }
 
 section.home-presentation {
@@ -1087,6 +1127,10 @@ section.home-presentation {
 	}
 }
 
+section.home-presentation .wp-block-image {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
 #home-bg-slider.swiper {
 	position: fixed;
 	top: 0;
@@ -1101,7 +1145,7 @@ section.home-presentation {
 	}
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1024px) {
 	#home-bg-slider.swiper {
 		height: 100%;
 	}
@@ -1121,15 +1165,21 @@ section.home-presentation {
 	left: -50%;
 }
 
+body:not(.home) #primary.site-main {
+	padding-top: 150px;
+}
+
 footer.entry-footer {
 	background: #212122;
 	padding: 1em 0;
 	text-align: right;
 	font-family: "Glacial Indifference Bold", bold, sans-serif;
+	z-index: 10;
+	position: relative;
 }
 
 footer.entry-footer .post-edit-link {
-	color: #fffefe;
+	color: #fffffe;
 	font-size: 1.25rem;
 	text-decoration: none;
 }
@@ -1141,6 +1191,8 @@ footer.entry-footer .post-edit-link:hover {
 #colophon.site-footer {
 	background: #212122;
 	padding: 2em 0;
+	position: relative;
+	z-index: 10;
 }
 
 #colophon.site-footer #menu-reseaux-sociaux-header {
