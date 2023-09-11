@@ -45,11 +45,11 @@ const mobileMenu = () => {
 // 	threshold: 0.5,
 // } );
 
-// document.addEventListener( 'DOMContentLoaded', () => {
-// 	mobileMenu();
-// 	menuObserver.observe( document.querySelector( '.entry-content>section+section' ) );
-// 	homeSlider.init();
-// } );
+document.addEventListener( 'DOMContentLoaded', () => {
+	mobileMenu();
+	// menuObserver.observe( document.querySelector( '.entry-content>section+section' ) );
+	homeSlider.init();
+} );
 
 // Menu Reduction on scroll
 window.addEventListener( 'scroll', () => {
