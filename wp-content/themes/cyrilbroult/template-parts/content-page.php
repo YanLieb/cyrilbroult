@@ -35,8 +35,8 @@
 	</div>
 
 	<?php cyrilbroult_post_thumbnail(); ?>
-
-	<div class="entry-content">
+	<?php $latest_news_background = get_field('background_image'); ?>
+	<div class="entry-content" style="--latest-news-background: url(<?php echo $latest_news_background['url']; ?>);">
 		<?php
 		the_content();
 
@@ -46,29 +46,31 @@
 				'after'  => '</div>',
 			)
 		);
+
+
 		?>
 	</div><!-- .entry-content -->
 
 	<?php if (get_edit_post_link()) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__('Edit <span class="screen-reader-text">%s</span>', 'cyrilbroult'),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post(get_the_title())
+		<footer class=" entry-footer">
+		<?php
+		edit_post_link(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__('Edit <span class="screen-reader-text">%s</span>', 'cyrilbroult'),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
 				),
-				'<div class="edit-link container">',
-				'</div>'
-			);
-			?>
+				wp_kses_post(get_the_title())
+			),
+			'<div class="edit-link container">',
+			'</div>'
+		);
+		?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
