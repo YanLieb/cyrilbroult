@@ -129,7 +129,7 @@ section.home-latest-news {
 		z-index: -1;
 		background: var(--latest-news-background) no-repeat center center;
 		background-size: cover;
-		filter: brightness(50%) blur(5px);
+		filter: brightness(40%) blur();
 	}
 
 	.h2 {
@@ -227,8 +227,6 @@ body:not(.home) #primary.site-main {
 }
 
 footer.entry-footer {
-	background: $black;
-	padding: 1em 0;
 	text-align: right;
 	font-family: $font-bold;
 	z-index: 10;
@@ -238,6 +236,9 @@ footer.entry-footer {
 		color: $white;
 		font-size: $font-size-large;
 		text-decoration: none;
+		position: absolute;
+		top: -3rem;
+		right: 6rem;
 
 		&:hover {
 			text-decoration: underline;
@@ -255,7 +256,7 @@ footer.entry-footer {
 		opacity: 1;
 		justify-content: center;
 		gap: 2em;
-		--icon-size: 40px;
+		--icon-size: 30px;
 	}
 
 	.widget_block p {

@@ -1014,7 +1014,7 @@ body.is-desktop-menu-scrolled #masthead.site-header {
 }
 
 body:not(.home) #masthead.site-header {
-	backdrop-filter: blur(10px) brightness(0.2);
+	background: #212122;
 }
 
 /* Posts and pages
@@ -1159,7 +1159,7 @@ section.home-latest-news::after {
 	z-index: -1;
 	background: var(--latest-news-background) no-repeat center center;
 	background-size: cover;
-	filter: brightness(50%) blur(5px);
+	filter: brightness(40%) blur();
 }
 
 section.home-latest-news .h2 {
@@ -1256,8 +1256,6 @@ body:not(.home) #primary.site-main {
 }
 
 footer.entry-footer {
-	background: #212122;
-	padding: 1em 0;
 	text-align: right;
 	font-family: "Glacial Indifference Bold", bold, sans-serif;
 	z-index: 10;
@@ -1268,6 +1266,9 @@ footer.entry-footer .post-edit-link {
 	color: #fffffe;
 	font-size: 1.25rem;
 	text-decoration: none;
+	position: absolute;
+	top: -3rem;
+	right: 6rem;
 }
 
 footer.entry-footer .post-edit-link:hover {
@@ -1285,7 +1286,7 @@ footer.entry-footer .post-edit-link:hover {
 	opacity: 1;
 	justify-content: center;
 	gap: 2em;
-	--icon-size: 40px;
+	--icon-size: 30px;
 }
 
 #colophon.site-footer .widget_block p {
