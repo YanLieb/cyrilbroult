@@ -254,5 +254,5 @@ body.is-desktop-menu-scrolled {
 }
 
 body:not(.home) #masthead.site-header {
-	backdrop-filter: blur(10px) brightness(0.2);
+	background: $black;
 }
