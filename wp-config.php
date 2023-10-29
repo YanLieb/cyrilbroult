@@ -24,10 +24,10 @@
 define( 'DB_NAME', 'cyrilbroult_dev' );
 
 /** Utilisateur de la base de données MySQL. */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'yanlieb' );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'Xcacst2613!' );
 
 /** Adresse de l’hébergement MySQL. */
 define( 'DB_HOST', 'localhost' );
@@ -85,6 +85,9 @@ $table_prefix = 'cb_';
  * @link https://fr.wordpress.org/support/article/debugging-in-wordpress/
  */
 define('WP_DEBUG', false);
+
+/* Installation directe pour les modules */
+define('FS_METHOD', 'direct');
 
 /* C’est tout, ne touchez pas à ce qui suit ! Bonne publication. */
 
