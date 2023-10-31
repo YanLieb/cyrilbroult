@@ -29,6 +29,7 @@
 @import-glob "./custom/components/**/!(components).css";
 @import "./custom/components/components.css";
 @import "./custom/components/header.css";
+@import "./custom/components/homepage.css";
 
 /**
  * This injects Tailwind's utility classes and any utility classes registered

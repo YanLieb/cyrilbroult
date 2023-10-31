@@ -4,8 +4,7 @@
 		@apply
 		fixed top-0 right-0 bottom-0 left-0 z-50
 		flex flex-row
-		h-fit
-		bg-black;
+		h-fit;
 	}
 
 	& #header-site-logo {
@@ -22,8 +21,7 @@
 		fixed top-0 right-0
 		w-fit z-50
 		cursor-pointer
-		p-4
-		bg-black/80;
+		p-4;
 		& span {
 			transition: opacity 250ms ease-in-out 300ms, transform 250ms ease-in-out;
 		}
@@ -36,12 +34,12 @@
 
 	#site-navigation {
 		@apply
-		fixed top-0 -right-full
+		container fixed top-0 -right-[100vw]
 		overflow-hidden z-40
 		flex flex-col gap-16 items-center justify-center
 		h-screen w-screen
-		bg-black text-white text-center text-3xl uppercase font-bold;
-		transition: right 250ms ease-in-out;
+		text-white text-center text-3xl uppercase font-bold;
+		transition: all 250ms ease-in-out;
 
 		@media screen(md) {
 				@apply
@@ -69,30 +67,39 @@
 
 			@media screen(md) {
 				@apply
-				absolute right-8 top-1/2 -translate-y-1/2;
+				absolute right-4 top-1/2 -translate-y-1/2;
+			}
+			@media screen(lg) {
+				@apply right-8;
 			}
 		}
 	}
+}
 
-	&.is-menu-mobile-visible {
+body.is-menu-mobile-visible {
+	@apply overflow-hidden;
+	#masthead {
 		#responsive-menu-btn {
 			& span {
 				transition: opacity 250ms ease-in-out, transform 250ms ease-in-out 300ms;
 			}
+
 			& span:first-child {
-				transform: rotate(45deg) translate(6px,10px);
+				transform: rotate(45deg) translate(6px, 10px);
 			}
+
 			& span:nth-child(2) {
 				opacity: 0;
 			}
+
 			& span:last-child {
-				transform: rotate(-45deg) translate(1px,-5px);
+				transform: rotate(-45deg) translate(1px, -5px);
 			}
 		}
+
 		#site-navigation {
 			@apply
-			right-0
+			backdrop-brightness-50 backdrop-blur-md right-0;
 		}
 	}
-
 }

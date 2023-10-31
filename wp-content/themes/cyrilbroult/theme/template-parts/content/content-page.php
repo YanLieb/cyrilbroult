@@ -11,31 +11,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header">
-		<?php
-		if ( ! is_front_page() ) {
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		} else {
-			the_title( '<h2 class="entry-title">', '</h2>' );
-		}
-		?>
-	</header><!-- .entry-header -->
-
-	<?php cb_post_thumbnail(); ?>
-
-	<div <?php cb_content_class( 'entry-content' ); ?>>
-		<?php
-		the_content();
-
-		wp_link_pages(
-			array(
-				'before' => '<div>' . __( 'Pages:', 'cyrilbroult' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
+	<?php if ( ! is_front_page() ) :
+		include get_theme_file_path( 'template-parts/content/content-single.php' );
+	else :
+		include get_theme_file_path( 'template-parts/content/content-home.php' );
+	endif;
+?>
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
