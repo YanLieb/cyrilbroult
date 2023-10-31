@@ -12,6 +12,9 @@ module.exports = {
 		'./theme/theme.json',
 	],
 	theme: {
+		container: {
+			center: true,
+		},
 		// Extend the default Tailwind theme.
 		extend: {
 			fontFamily: {

@@ -9,18 +9,5 @@
  * https://esbuild.github.io/
  */
 
-const responsiveMenuToggle = () => {
-	const responsiveMenuBtn = document.querySelector('#responsive-menu-btn');
-	const header = document.querySelector('header#masthead');
-	if ( Boolean( header ) && header.classList.contains( 'is-menu-mobile-visible' ) ) {
-		header.classList.remove( 'is-menu-mobile-visible' );
-	}
-	if ( Boolean( responsiveMenuBtn ) && Boolean( header ) ) {
-		responsiveMenuBtn.addEventListener( 'click', () => {
-			header.classList.toggle( 'is-menu-mobile-visible' );
-		} );
-	}
-}
-document.addEventListener('DOMContentLoaded', () => {
-	responsiveMenuToggle();
-})
+import './global/menu';
+import './homepage/home-swiper';

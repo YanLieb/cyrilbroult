@@ -11,40 +11,42 @@
 
 <header id="masthead">
 
-	<?php if (has_custom_logo()) :
-		$custom_logo_id = get_theme_mod('custom_logo');
-		$custom_logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-		?>
-		<div id="header-site-logo">
-			<img src="<?php echo esc_url($custom_logo[0]) ?>" alt="<?php echo get_bloginfo('name') ?>" width="60"
-				 height="60">
-		</div>
-	<?php elseif (is_front_page()): ?>
-		<h1><?php bloginfo('name'); ?></h1>
-	<?php else : ?>
-		<p>
-			<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-		</p>
-	<?php endif; ?>
-
 	<div id="responsive-menu-btn" class="">
 		<span class="block w-8 h-1 rounded bg-white mb-1"></span>
 		<span class="block w-8 h-1 rounded bg-white mb-1"></span>
 		<span class="block w-8 h-1 rounded bg-white"></span>
 	</div>
 
-	<nav id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'cyrilbroult'); ?>">
+	<div id="site-navigation">
+		<?php if ( has_custom_logo() ) :
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+			$custom_logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+			?>
+			<div id="header-site-logo">
+				<img src="<?php echo esc_url( $custom_logo[0] ) ?>" alt="<?php echo get_bloginfo( 'name' ) ?>"
+					 width="60"
+					 height="60">
+			</div>
+		<?php elseif ( is_front_page() ): ?>
+			<h1><?php bloginfo( 'name' ); ?></h1>
+		<?php else : ?>
+			<p>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			</p>
+		<?php endif; ?>
 
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'menu-1',
-				'menu_id' => 'primary-menu',
-				'items_wrap' => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>'
-			)
-		);
-		$social_menu = add_social_networks_to_menu();
-		echo $social_menu;
-		?>
-	</nav><!-- #site-navigation -->
+		<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'cyrilbroult' ); ?>">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>'
+				)
+			);
+			$social_menu = add_social_networks_to_menu();
+			echo $social_menu;
+			?>
+		</nav>
+	</div><!-- #site-navigation -->
 </header><!-- #masthead -->
