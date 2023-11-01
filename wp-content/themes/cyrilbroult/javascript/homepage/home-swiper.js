@@ -22,3 +22,17 @@ new Swiper('#home-slider .swiper', {
 		clickable: true,
 	}
 });
+
+new Swiper ('#home-reassurances.swiper', {
+	slidesPerView: 1,
+	navigation: {
+		nextEl: '#home-reassurances .swiper-controls .swiper-button-next',
+		prevEl: '#home-reassurances .swiper-controls .swiper-button-prev',
+	},
+	breakpoints: {
+		768: {
+			slidesPerView: 3
+		}
+
+	}
+})
