@@ -25,14 +25,24 @@ new Swiper('#home-slider .swiper', {
 
 new Swiper ('#home-reassurances.swiper', {
 	slidesPerView: 1,
+	spaceBetween: 20,
 	navigation: {
 		nextEl: '#home-reassurances .swiper-controls .swiper-button-next',
 		prevEl: '#home-reassurances .swiper-controls .swiper-button-prev',
 	},
 	breakpoints: {
-		768: {
+		640: {
 			slidesPerView: 3
 		}
 
 	}
 })
+
+new Swiper ('#home-testimonials.swiper', {
+	slidesPerView: 1,
+	pagination: {
+		el: '#home-testimonials .swiper-controls .swiper-pagination',
+		type: 'bullets',
+		clickable: true,
+	}
+	})
