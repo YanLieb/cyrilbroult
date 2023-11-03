@@ -1,7 +1,8 @@
 body.home {
 	& section:not(:first-child) {
-		@apply bg-white;
+		@apply bg-zinc-100;
 	}
+
 	#home-slider {
 		@apply h-screen bg-transparent;
 
@@ -12,7 +13,7 @@ body.home {
 		}
 
 		.swiper {
-			@apply fixed bg-black top-0 right-0 bottom-0 left-0 -z-20;
+			@apply fixed bg-zinc-900 top-0 right-0 bottom-0 left-0 -z-20;
 
 			.swiper-slide img {
 				@apply brightness-50 blur-sm h-screen w-screen object-cover;
@@ -28,7 +29,7 @@ body.home {
 			@apply
 			container h-screen z-30
 			flex flex-col justify-center
-			text-white text-center;
+			text-zinc-100 text-center;
 
 			@media screen(md) {
 				@apply h-4/5 justify-end text-left px-8;
@@ -59,7 +60,7 @@ body.home {
 				transition: all 250ms ease-in-out;
 
 				&:hover {
-					@apply bg-white text-black;
+					@apply bg-zinc-100 text-zinc-900;
 				}
 
 				@media screen(md) {
@@ -70,8 +71,16 @@ body.home {
 	}
 
 	#home-reassurances {
-		@apply py-16 px-8 bg-transparent
-		text-white text-xl font-cb-bold uppercase;
+		@apply
+		py-16 px-8
+		bg-zinc-900
+		text-zinc-100 text-xl font-cb-bold uppercase;
+
+		.swiper {
+			@media screen(md) {
+				@apply w-3/4;
+			}
+		}
 
 		&.swiper:not(.swiper-initialized) {
 			.swiper-slide {
@@ -82,12 +91,13 @@ body.home {
 		}
 
 		.swiper-wrapper {
-			@apply items-end justify-center;
+			@apply items-end;
 		}
 
 		& p {
 			@apply text-center;
 		}
+
 		& img {
 			@apply mx-auto mb-4;
 		}
@@ -119,5 +129,54 @@ body.home {
 				}
 			}
 		}
+	}
+
+	#home-testimonials {
+		@apply bg-zinc-900
+		text-zinc-100
+		py-20;
+
+		.swiper:not(.swiper-initialized) .swiper-wrapper {
+			.swiper-slide {
+				@apply mr-8;
+			}
+		}
+
+
+		.quote {
+			@apply relative w-5/6 mx-auto mb-2 text-2xl font-bold z-10;
+
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				width: 5rem;
+				height: 5rem;
+				background: url(../src/img/quote-white.svg) no-repeat center;
+				background-size: contain;
+				position: absolute;
+				z-index: -10;
+				opacity: 0.2;
+			}
+			&::before {
+				top: -2.5rem;
+				left: 0;
+			}
+			&::after {
+				bottom: -2.5rem;
+				right: 0;
+				transform: rotate(180deg);
+			}
+		}
+		.author {
+			@apply w-5/6 mx-auto text-xl italic;
+		}
+
+		@media screen(md) {
+			.quote, .author {
+				@apply w-4/5;
+			}
+		}
+
 	}
 }

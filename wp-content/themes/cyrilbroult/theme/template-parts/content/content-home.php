@@ -39,14 +39,14 @@
 		};
 		$i = 0;
 		foreach ( $reassurances as $key => $reassurance ) : ?>
-				<div id="<?php echo $key; ?>" class="reassurance swiper-slide">
-					<?php $i++;?>
-					<img src="<?php echo $reassurance["icon_$i"]['url']; ?>"
-						 alt="<?php echo $reassurance["icon_$i"]['name']; ?>"
-						 width="80" height="80" loading="lazy">
-					<p><?php echo $reassurance['text']; ?></p>
-				</div>
-			<?php
+			<div id="<?php echo $key; ?>" class="reassurance swiper-slide">
+				<?php $i ++; ?>
+				<img src="<?php echo $reassurance["icon_$i"]['url']; ?>"
+					 alt="<?php echo $reassurance["icon_$i"]['name']; ?>"
+					 width="80" height="80" loading="lazy">
+				<p><?php echo $reassurance['text']; ?></p>
+			</div>
+		<?php
 		endforeach; ?>
 	</div>
 	<div class="swiper-controls">
@@ -57,7 +57,6 @@
 
 
 <section id="home-presentation">
-
 	<?php
 	if ( get_field( 'home_presentation' ) ) {
 		$home_presentation = get_field( 'home_presentation' );
@@ -78,4 +77,22 @@
 	<?php endforeach; ?>
 </section>
 
-<?php
+<section id="home-testimonials" class="swiper">
+	<div class="container swiper-wrapper">
+		<?php if ( get_field( 'home_testimonials' ) ) {
+			$testimonials = get_field( 'home_testimonials' );
+		};
+		foreach ( $testimonials as $key => $testimonial ) : ?>
+			<div class="swiper-slide <?php echo $key; ?>">
+				<div class="quote">
+					<?php echo $testimonial["quote"]; ?>
+				</div>
+				<div class="author">
+					<?php echo $testimonial["author"]; ?>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<div class="swiper-controls">
+		<div class="swiper-pagination"></div>
+</section>
