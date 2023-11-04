@@ -6,21 +6,21 @@
 
 @font-face {
 	font-family: 'Glacial Indifference';
-	src: url(../src/fonts/GlacialIndifference-Regular.otf) format('opentype');
+	src: url(./src/fonts/GlacialIndifference-Regular.otf) format('opentype');
 }
 
 @font-face {
 	font-family: 'Glacial Bold';
-	src: url(../src/fonts/GlacialIndifference-Bold.otf) format('opentype');
+	src: url(./src/fonts/GlacialIndifference-Bold.otf) format('opentype');
 	font-weight: bold;
 }
 
 @font-face {
 	font-family: 'Glacial Italic';
-	src: url(../src/fonts/GlacialIndifference-Italic.otf) format('opentype');
+	src: url(./src/fonts/GlacialIndifference-Italic.otf) format('opentype');
 	font-style: italic;
 }
 @font-face {
 	font-family: 'Norwester';
-	src: url(../src/fonts/norwester.otf) format('opentype');
+	src: url(./src/fonts/norwester.otf) format('opentype');
 }

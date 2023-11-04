@@ -20,6 +20,22 @@
 	--cb-italic: 'Glacial Italic';
 	--cb-heading: 'Norwester';
 	--swiper-theme-color: white;
+	--swiper-pagination-bullet-inactive-color: white;
+	--swiper-pagination-color: rgba(255, 255, 255, 0.5);
+	--swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.5);
+	--swiper-pagination-progressbar-size: 10px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	@apply font-cb-bold uppercase;
+}
+
+h2,.h2 {
+	@apply text-4xl mb-2;
 }
 
 body {
@@ -31,3 +47,4 @@ body:not(.home) header + * {
 		@apply mt-32;
 	}
 }
+
