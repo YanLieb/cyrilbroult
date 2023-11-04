@@ -19,9 +19,9 @@ body.home {
 				@apply brightness-50 blur-sm h-screen w-screen object-cover;
 			}
 
-			.swiper-pagination,
-			.swiper-button-prev,
-			.swiper-button-next {
+			.swiper-pagination-progressbar.swiper-pagination-horizontal {
+				bottom: 0;
+				top: unset;
 			}
 		}
 
@@ -35,7 +35,7 @@ body.home {
 				@apply h-4/5 justify-end text-left px-8;
 			}
 
-			& h2 {
+			& .title {
 				@apply text-6xl font-cb-heading;
 
 				@media screen(md) {
@@ -43,7 +43,7 @@ body.home {
 				}
 			}
 
-			& h1 {
+			& .subtitle {
 				@apply text-3xl font-cb-heading;
 
 				@media screen(md) {
@@ -66,6 +66,27 @@ body.home {
 				@media screen(md) {
 					@apply mx-0;
 				}
+			}
+		}
+
+		.scroll-arrow {
+			@apply absolute bottom-12 left-1/2 -translate-x-1/2;
+			animation: infinite rebound 3s ease-in-out;
+
+			@keyframes rebound {
+				0% {
+					opacity: 0.5;
+					bottom: 3rem;
+				}
+				50% {
+					opacity: 1;
+					bottom: 2rem;
+				}
+				100% {
+					opacity: 0.5;
+					bottom: 3rem;
+				}
+
 			}
 		}
 	}
@@ -134,7 +155,7 @@ body.home {
 	#home-testimonials {
 		@apply bg-zinc-900
 		text-zinc-100
-		py-20;
+		py-16;
 
 		.swiper:not(.swiper-initialized) .swiper-wrapper {
 			.swiper-slide {
@@ -144,7 +165,7 @@ body.home {
 
 
 		.quote {
-			@apply relative w-5/6 mx-auto mb-2 text-2xl font-bold z-10;
+			@apply relative w-5/6 mx-auto my-8 mb-2 text-2xl font-bold z-10;
 
 			&::before,
 			&::after {
@@ -158,16 +179,19 @@ body.home {
 				z-index: -10;
 				opacity: 0.2;
 			}
+
 			&::before {
 				top: -2.5rem;
 				left: 0;
 			}
+
 			&::after {
 				bottom: -2.5rem;
 				right: 0;
 				transform: rotate(180deg);
 			}
 		}
+
 		.author {
 			@apply w-5/6 mx-auto text-xl italic;
 		}
@@ -175,6 +199,101 @@ body.home {
 		@media screen(md) {
 			.quote, .author {
 				@apply w-4/5;
+			}
+		}
+	}
+
+	#home-latest-news {
+		@apply relative overflow-hidden;
+		background-color: unset;
+
+		&::after {
+			content: "";
+			background: var(--bg-image) no-repeat center;
+			background-size: cover;
+			filter: blur(5px) brightness(40%);
+			@apply absolute top-0 left-0 right-0 bottom-0 w-screen -z-10;
+		}
+
+		.section-wrapper {
+			@apply py-16 px-4;
+
+			@media screen(sm) {
+				@apply py-20 px-8;
+			}
+		}
+
+		.section-header {
+			@apply text-zinc-200 text-center mb-8;
+
+			.subtitle {
+				@apply text-xl;
+			}
+		}
+
+		.section-body {
+			@apply flex flex-col gap-8;
+
+		&.swiper:not(.swiper-initialized) {
+			.swiper-slide {
+				&:not(:last-child) {
+					@apply mr-8;
+				}
+				@media screen(sm) {
+					@apply w-1/2;
+				}
+				@media screen(lg) {
+					@apply w-1/3;
+				}
+			}
+		}
+		}
+
+		.post-miniature {
+			@apply bg-zinc-100 px-4 py-12 rounded-sm;
+			min-height: 620px;
+
+			@media screen(sm) {
+				@apply px-8;
+			}
+		}
+
+		.post-title {
+			min-height: 48px;
+			@apply mb-2
+		}
+
+		.post-thumbnail {
+			@apply mb-4;
+			& img {
+				max-height: 220px;
+				aspect-ratio: 2/3;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+
+		.post-excerpt {
+			& a {
+				@apply font-bold;
+
+				&::before {
+					content: "… ";
+					@apply font-normal;
+				}
+
+				&::after {
+					content: "»";
+					@apply text-xl;
+					display: inline-block;
+					transition: transform 250ms ease-in-out;
+				}
+
+				&:hover {
+					&::after {
+						transform: translateX(5px);
+					}
+				}
 			}
 		}
 
