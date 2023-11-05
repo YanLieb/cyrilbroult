@@ -11,10 +11,10 @@
 
 <header id="masthead">
 
-	<div id="responsive-menu-btn" class="">
-		<span class="block w-8 h-1 rounded bg-white mb-1"></span>
-		<span class="block w-8 h-1 rounded bg-white mb-1"></span>
-		<span class="block w-8 h-1 rounded bg-white"></span>
+	<div id="responsive-menu-btn">
+		<span></span>
+		<span></span>
+		<span></span>
 	</div>
 
 	<div id="site-navigation">

@@ -29,6 +29,7 @@
 @import-glob "./custom/components/**/!(components).css";
 @import "./custom/components/components.css";
 @import "./custom/components/header.css";
+@import "./custom/components/footer.css";
 @import "./custom/components/homepage.css";
 
 /**

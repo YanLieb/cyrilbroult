@@ -25,7 +25,7 @@
 		<a type="button" href="<?php echo $text['button']['link']; ?>"
 			 target="_blank"><?php echo $text['button']['title']; ?></a>
 	</div>
-	<a href="#home-presentation" class="scroll-arrow"><img src="<?php echo get_template_directory_uri(); ?>/src/img/arrow-down-white.svg" alt="white arrow down" width="40" height="40"></a>
+	<a href="#home-reassurances" class="scroll-arrow"><img src="<?php echo get_template_directory_uri(); ?>/src/img/arrow-down-white.svg" alt="white arrow down" width="40" height="40"></a>
 </section>
 
 

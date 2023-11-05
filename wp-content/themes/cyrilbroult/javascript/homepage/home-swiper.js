@@ -3,7 +3,7 @@ import {Navigation, Pagination, EffectFade, EffectCreative} from "swiper/modules
 import 'swiper/css';
 
 new Swiper('#home-slider .swiper', {
-	modules: [Pagination, EffectFade],
+	modules: [Pagination, EffectCreative],
 	slidesPerView: 1,
 	effect: 'fade',
 	fadeEffect: {
@@ -13,6 +13,7 @@ new Swiper('#home-slider .swiper', {
 	speed: 2500,
 	autoplay: {
 		delay: 5000,
+		disableOnInteraction: false,
 	},
 	pagination: {
 		el: '#home-slider .swiper-pagination',
@@ -21,15 +22,18 @@ new Swiper('#home-slider .swiper', {
 });
 
 new Swiper('#home-reassurances .swiper', {
-	modules: [Navigation],
+	modules: [Navigation, EffectFade],
 	slidesPerView: 1,
+	spaceBetween: 50,
+	loop: true,
 	navigation: {
 		nextEl: '#home-reassurances .swiper-button-next',
 		prevEl: '#home-reassurances .swiper-button-prev',
 	},
 	breakpoints: {
 		640: {
-			slidesPerView: 3
+			slidesPerView: 3,
+			loop: false
 		}
 
 	}

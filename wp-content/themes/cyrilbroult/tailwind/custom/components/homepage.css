@@ -127,11 +127,19 @@ body.home {
 	#home-presentation {
 		@apply py-24 px-8;
 
+		@media screen(md) {
+			@apply py-32;
+		}
+
 		.presentation-block {
 			@apply flex flex-col gap-8 justify-center items-center;
 
 			&:not(:last-child) {
 				@apply mb-12;
+
+				@media screen(md) {
+					@apply mb-20;
+				}
 			}
 
 			@media screen(md) {
@@ -142,7 +150,7 @@ body.home {
 				}
 
 				.text {
-					@apply w-2/4 text-lg;
+					@apply w-2/4 text-xl;
 				}
 
 				.image {
@@ -173,7 +181,7 @@ body.home {
 				display: block;
 				width: 5rem;
 				height: 5rem;
-				background: url(../src/img/quote-white.svg) no-repeat center;
+				background: url(./src/img/quote-white.svg) no-repeat center;
 				background-size: contain;
 				position: absolute;
 				z-index: -10;

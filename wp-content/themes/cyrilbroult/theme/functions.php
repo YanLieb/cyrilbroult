@@ -225,15 +225,13 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
-/* Deactivate Gutenberg */
-add_filter('use_block_editor_for_post', '__return_false');
 
 /* Add social networks to menu with ACF */
 function add_social_networks_to_menu()
 {
 	$menu = wp_get_nav_menu_object(2);
 	$social_networks = get_field('social_networks', $menu);
-	$ul_open = '<ul id="header-social-menu" class="flex">';
+	$ul_open = '<ul class="social-menu flex">';
 	$ul_close = '</ul>';
 
 	foreach ($social_networks as $key => $social_network) {
