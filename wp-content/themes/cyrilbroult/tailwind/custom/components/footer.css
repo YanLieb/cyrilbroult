@@ -1,0 +1,39 @@
+#main .entry-footer {
+	@apply
+	text-zinc-900 bg-zinc-100
+	px-8 py-4;
+}
+
+footer#colophon {
+	@apply
+	text-zinc-100 bg-zinc-900
+	px-8 pt-8 pb-4;
+
+	.footer-wrapper {
+		@apply
+		flex flex-col items-center gap-4 mb-4;
+
+		@media screen(sm) {
+			@apply flex-row justify-center items-end;
+		}
+	}
+
+	#footer-logo {
+		width: 100px;
+	}
+	.social-menu {
+		@apply gap-2 justify-center mb-4;
+
+		@media screen(sm) {
+			@apply mb-2;
+		}
+	}
+
+	#footer-menu {
+		@apply text-center;
+	}
+
+	#footer-credits {
+		@apply text-xs text-center text-zinc-400;
+	}
+}

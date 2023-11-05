@@ -4,7 +4,9 @@
 		@apply
 		fixed top-0 right-0 bottom-0 left-0 z-50
 		flex flex-row
-		h-fit;
+		h-fit
+		bg-transparent;
+		transition: background-color 250ms ease-in-out;
 	}
 
 	& #header-site-logo {
@@ -13,22 +15,6 @@
 			@apply
 			block z-50
 			absolute top-1/2 left-8 -translate-y-1/2;
-		}
-	}
-
-	& #responsive-menu-btn {
-		@apply
-		fixed top-0 right-0
-		w-fit z-50
-		cursor-pointer
-		p-4;
-		& span {
-			transition: opacity 250ms ease-in-out 300ms, transform 250ms ease-in-out;
-		}
-
-		@media screen(md) {
-			@apply
-			hidden;
 		}
 	}
 
@@ -42,25 +28,26 @@
 		transition: all 250ms ease-in-out;
 
 		@media screen(md) {
-				@apply
-				relative right-0
-				flex-row
-				h-fit p-6
-				text-xl font-normal;
+			@apply
+			relative right-0
+			flex-row
+			h-fit p-6
+			text-xl font-normal;
 		}
 
 		& #primary-menu {
 			@apply
-			flex flex-col gap-4
-			items-center justify-center;
+			flex flex-col gap-4 items-center justify-center
+			mb-8;
 
 			@media screen(md) {
 				@apply
 				flex-row gap-8
+				mb-0;
 			}
 		}
 
-		& #header-social-menu {
+		& .social-menu {
 			@apply
 			flex gap-4
 			items-center justify-center;
@@ -76,10 +63,59 @@
 	}
 }
 
+#masthead.is-scrolled {
+	@apply bg-zinc-900;
+}
+
+#responsive-menu-btn {
+	@apply
+	fixed top-0 right-0
+	w-fit z-50
+	cursor-pointer
+	p-3;
+
+	& span {
+		@apply
+		block w-8 h-1
+		rounded bg-zinc-100;
+		transition: opacity 250ms ease-in-out 300ms, transform 250ms ease-in-out;
+
+		&:not(:last-child) {
+			@apply mb-1;
+		}
+	}
+
+	&::after {
+		content: "";
+		@apply
+		block w-screen h-12
+		absolute top-0 right-0 -z-10
+		bg-zinc-900
+		opacity-0;
+		transition: opacity 250ms ease-in-out;
+	}
+
+	@media screen(md) {
+		@apply
+		hidden;
+	}
+
+	&.is-scrolled {
+		&::after {
+			@apply opacity-100;
+		}
+	}
+}
+
 body.is-menu-mobile-visible {
 	@apply overflow-hidden;
+
 	#masthead {
 		#responsive-menu-btn {
+			&::after {
+				@apply opacity-0;
+			}
+
 			& span {
 				transition: opacity 250ms ease-in-out, transform 250ms ease-in-out 300ms;
 			}
