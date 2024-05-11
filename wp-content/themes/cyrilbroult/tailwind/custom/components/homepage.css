@@ -4,19 +4,35 @@ body.home {
 	}
 
 	#home-slider {
-		@apply h-screen bg-transparent;
+		height: 100svh;
+		@apply bg-transparent;
 
 		.swiper:not(.swiper-initialized) {
 			.swiper-slide:first-child {
-				@apply relative z-10;
+				position: relative;
+				z-index: 10;
 			}
 		}
 
 		.swiper {
-			@apply fixed bg-zinc-900 top-0 right-0 bottom-0 left-0 -z-20;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -20;
+			opacity: 1;
+			transition: opacity 250ms ease-in-out;
+
+			&.is-hidden {
+				opacity: 0;
+			}
 
 			.swiper-slide img {
-				@apply brightness-50 blur-sm h-screen w-screen object-cover;
+				height: 100svh;
+				width: 100svw;
+				object-fit: cover;
+				filter: brightness(70%) blur(2px);
 			}
 
 			.swiper-pagination-progressbar.swiper-pagination-horizontal {
@@ -26,13 +42,17 @@ body.home {
 		}
 
 		.slider-content {
-			@apply
-			container h-screen z-30
-			flex flex-col justify-center
-			text-zinc-100 text-center;
+			@apply container text-zinc-100;
+			height: 100svh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
 
 			@media screen(md) {
-				@apply h-4/5 justify-end text-left px-8;
+				@apply h-4/5 px-8;
+				justify-content: flex-end;
+				text-align: left;
 			}
 
 			& .title {
@@ -52,8 +72,7 @@ body.home {
 			}
 
 			& a[type="button"] {
-				@apply
-				block w-fit
+				@apply block w-fit
 				px-8 py-4 mx-auto mt-12
 				border-white border-2 backdrop-blur-xl rounded-lg
 				text-lg font-cb-bold uppercase;
@@ -86,14 +105,12 @@ body.home {
 					opacity: 0.5;
 					bottom: 3rem;
 				}
-
 			}
 		}
 	}
 
 	#home-reassurances {
-		@apply
-		py-16 px-8
+		@apply py-16 px-8
 		bg-zinc-900
 		text-zinc-100 text-xl font-cb-bold uppercase;
 
@@ -142,19 +159,23 @@ body.home {
 				}
 			}
 
+			.text {
+				@apply text-2xl;
+			}
+
 			@media screen(md) {
-				@apply flex-row gap-12;
+				@apply flex-row;
 
 				&:nth-child(even) {
 					@apply flex-row-reverse;
 				}
 
 				.text {
-					@apply w-2/4 text-xl;
+					@apply w-2/4;
 				}
 
 				.image {
-					@apply w-1/4;
+					@apply shadow-lg;
 				}
 			}
 		}
@@ -170,7 +191,6 @@ body.home {
 				@apply mr-8;
 			}
 		}
-
 
 		.quote {
 			@apply relative w-5/6 mx-auto my-8 mb-2 text-2xl font-bold z-10;
@@ -205,21 +225,23 @@ body.home {
 		}
 
 		@media screen(md) {
-			.quote, .author {
+			.quote,
+			.author {
 				@apply w-4/5;
 			}
 		}
 	}
 
 	#home-latest-news {
-		@apply relative overflow-hidden;
+		position: relative;
+		overflow: hidden;
 		background-color: unset;
 
 		&::after {
 			content: "";
 			background: var(--bg-image) no-repeat center;
 			background-size: cover;
-			filter: blur(5px) brightness(40%);
+			filter: blur(3px) brightness(60%);
 			@apply absolute top-0 left-0 right-0 bottom-0 w-screen -z-10;
 		}
 
@@ -242,24 +264,28 @@ body.home {
 		.section-body {
 			@apply flex flex-col gap-8;
 
-		&.swiper:not(.swiper-initialized) {
-			.swiper-slide {
-				&:not(:last-child) {
-					@apply mr-8;
-				}
-				@media screen(sm) {
-					@apply w-1/2;
-				}
-				@media screen(lg) {
-					@apply w-1/3;
+			&.swiper {
+				overflow: visible;
+			}
+
+			&.swiper:not(.swiper-initialized) {
+				.swiper-slide {
+					&:not(:last-child) {
+						@apply mr-8;
+					}
+					@media screen(sm) {
+						@apply w-1/2;
+					}
+					@media screen(lg) {
+						@apply w-1/3;
+					}
 				}
 			}
-		}
 		}
 
 		.post-miniature {
 			@apply bg-zinc-100 px-4 py-12 rounded-sm;
-			min-height: 620px;
+			min-height: 40rem;
 
 			@media screen(sm) {
 				@apply px-8;
@@ -268,7 +294,7 @@ body.home {
 
 		.post-title {
 			min-height: 48px;
-			@apply mb-2
+			@apply mb-2;
 		}
 
 		.post-thumbnail {
@@ -304,6 +330,15 @@ body.home {
 				}
 			}
 		}
+	}
 
+	#home-authorword {
+		.section-wrapper {
+			@apply py-16 px-4;
+
+			@media screen(sm) {
+				@apply py-20 px-8;
+			}
+		}
 	}
 }
