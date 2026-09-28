@@ -5,7 +5,7 @@
 		"sirbrillig/phpcs-changed": "^2.10",
 		"sirbrillig/phpcs-variable-analysis": "^2.11",
 		"wp-cli/i18n-command": "^2.4",
-		"wp-coding-standards/wpcs": "^2.3"
+		"wp-coding-standards/wpcs": "^3.0.0"
 	},
 	"scripts": {
 		"php:lint": "vendor/bin/phpcs -p -s",

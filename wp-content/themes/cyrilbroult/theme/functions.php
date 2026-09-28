@@ -7,6 +7,10 @@
  * @package cyrilbroult
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if (!defined('CB_VERSION')) {
 	/*
 	 * Set the theme’s version number.
@@ -230,15 +234,28 @@ require get_template_directory() . '/inc/template-functions.php';
 function add_social_networks_to_menu()
 {
 	$menu = wp_get_nav_menu_object(2);
-	$social_networks = get_field('social_networks', $menu);
+	if ( ! $menu ) {
+		return '';
+	}
+
+	$social_networks = function_exists('get_field') ? get_field('social_networks', $menu) : null;
+	if ( empty($social_networks) || ! is_array($social_networks) ) {
+		return '';
+	}
+
 	$ul_open = '<ul class="social-menu flex">';
 	$ul_close = '</ul>';
+	$social_li = '';
 
 	foreach ($social_networks as $key => $social_network) {
+		$link_url = ! empty($social_network['link']) ? esc_url($social_network['link']) : '#';
+		$icon_url = ! empty($social_network['icon']['url']) ? esc_url($social_network['icon']['url']) : '';
+		$label    = esc_attr($key);
+
 		$social_li .=
-			'<li class="social-network" aria-label="' . $key . '">
-				<a href="' . $social_network['link'] . '">
-					<img src="' . $social_network['icon']['url'] . '" alt="' . $key . '" width="20" height="20">
+			'<li class="social-network" aria-label="' . $label . '">
+				<a href="' . $link_url . '">
+					<img src="' . $icon_url . '" alt="' . $label . '" width="20" height="20">
 				</a>
 			</li>';
 	}

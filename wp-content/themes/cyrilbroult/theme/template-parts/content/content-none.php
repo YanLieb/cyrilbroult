@@ -7,6 +7,9 @@
  * @package cyrilbroult
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <section>

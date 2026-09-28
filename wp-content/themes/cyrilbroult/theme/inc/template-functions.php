@@ -5,6 +5,10 @@
  * @package cyrilbroult
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */

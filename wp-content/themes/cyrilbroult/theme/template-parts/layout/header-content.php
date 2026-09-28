@@ -7,6 +7,9 @@
  * @package cyrilbroult
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <header id="masthead">
@@ -23,7 +26,7 @@
 			$custom_logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 			?>
 			<div id="header-site-logo">
-				<img src="<?php echo esc_url( $custom_logo[0] ) ?>" alt="<?php echo get_bloginfo( 'name' ) ?>"
+				<img src="<?php echo ! empty( $custom_logo[0] ) ? esc_url( $custom_logo[0] ) : ''; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
 					 width="60"
 					 height="60">
 			</div>
